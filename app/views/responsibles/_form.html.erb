@@ -1,0 +1,18 @@
+<%= simple_form_for(@responsible, :html => { :class => 'form-horizontal' }, :remote => true)  do |f| %>
+
+  <%= f.error_notification %>
+  <%= display_base_errors @responsible %>
+
+  <%= f.input :name %>
+  <%= f.input :surname %>
+  <%= f.input :extension %>
+  <%= f.label :document_id, :label => "Documento",  :required => true %>
+            <%= f.collection_select :document_id , Document.all, :id, :name, :prompt => "Tipo Documentos"  %><br><br><br>
+  <%= f.input :identification %>
+  <%= f.input :genre, :as => :radio, :label => "Genero", :collection => [["Masculino", false], ["Femenino", true]] %>
+  <%= f.input :phone %>
+  <div class="form-actions">
+    <%= f.submit "guardar", :class => 'btn btn-primary' %>
+    <%= link_to 'Atras', responsibles_path, :class => 'btn btn-small' %>
+  </div>
+<% end %>

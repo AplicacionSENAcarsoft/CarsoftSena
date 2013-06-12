@@ -1,0 +1,54 @@
+<%- model_class = User -%>
+  <div class="page-header">
+    <h1>Usuarios</h1>
+  </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+    <li id='buscar' class="brand" href="#">Buscar</li> 
+      <div class="row">
+        <div class="span6">
+          <form method="GET" class="form-inline" >
+            <input id='buscar' name="buscar" class="search-query" type="text"  placeholder="Buscar" >
+           <a  rel="tooltip" title="Ingresar datos a buscar"><button id='buscar' type="submit" class="btn btn-primary btn-mini"><i class="icon-search icon-white"></i></button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Identificacion</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Celular</th>
+        </tr>
+      </thead>
+      <tbody>
+       <%= render @users %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><%= link_to image_tag('nuevo.png', :tile  => "Mostrar Equipos"),  new_user_path,  :remote => true %></td>
+        </tr>
+      </tfoot>
+      <tfoot>
+          <tr>
+              <td><b>Total</b></td>
+            <td>
+                <p id='total_regs'><%= @users.total_entries %></p>
+            </td>
+          </tr>
+      </tfoot>
+    </table>
+  </div>
+    </table>
+      <div align="center">
+        <div id="pagination" class="pagination">
+          </ul>
+              <%= will_paginate @users, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente&raquo;' %>
+          </ul>
+        </div>
+      </div>

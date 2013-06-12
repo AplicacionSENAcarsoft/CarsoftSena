@@ -1,0 +1,29 @@
+<%- model_class = Responsible -%>
+<div class="page-header">
+  <h1>Responsables</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Extension</th>
+      <th>Documento</th>
+      <th>Identificacion</th>
+      <th>Genero</th>
+      <th>Telefono</th>
+      <th>Opciones</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @responsibles %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><%= link_to image_tag('nuevo.png', :tile  => "Mostrar Equipos"),  new_responsible_path,  :remote => true %></td>
+    </tr>
+    </tr>
+  </tfoot>
+</table>

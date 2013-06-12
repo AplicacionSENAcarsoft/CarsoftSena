@@ -1,0 +1,27 @@
+<%- model_class = AreaCenter -%>
+<div class="page-header">
+  <h1>Area Centro de <%= @responsible.name %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>Responsable</th>
+      <th>Extension</th>
+      <th>Telefono</th>
+      <th>Especificacion</th>
+      <th>Opciones</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @area_centers %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><%= link_to image_tag("participantes.png"), new_responsible_area_center_path, :remote => true  %> </td>
+      <td><%= link_to image_tag("atras.png"), responsibles_path %></td>
+    </tr>
+  </tfoot>
+</table>
